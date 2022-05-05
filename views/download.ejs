@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/downloadStyle.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>ShareMe | Download Page</title>
+  </head>
+  <body>
+      <div class="download-container">
+          <div class="icon-conatiner">
+            <img src="img/download.png" alt="download-icon">
+          </div>
+          <!-- checking whether server is sending some error (dynamic rendering) !-->
+          <% if(locals.error){ %>
+            <h4><%= locals.error %></h4>
+            <% } else{ %>  
+          <h3 class="download-title">Your file is ready to download</h3>
+          <p class="expires">Link expires in 24 hours</p>
+          <p class="file-name"><%= fileName%></p>
+          <p class="file-size"><%= parseInt(fileSize/1000) %> KB</p>
+          <a href = "<%=downloadLink%>" class="download-btn">Download File</a>
+          <% } %> 
+      </div>
+  </body>
+</html>

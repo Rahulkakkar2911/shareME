@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: cornsilk;
+}
+.download-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 40px 45px;
+}
+.download-container h3{
+    font-size: 20px;
+}
+.download-container .expires, .file-size{
+    font-size: 13px;
+    opacity: 0.8;
+}
+.file-name{
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+.file-size{
+    margin-bottom: 18px;
+}
+.download-btn{
+    color: #fff;
+    font-size: 15px;
+    padding: 5px 25px;
+    background-color: rgba(62, 62, 255, 0.875);
+    border-radius: 7px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+.download-btn:hover{
+    background-color: rgba(62, 62, 255, 0.663);
+}
