@@ -189,3 +189,14 @@ p{
     cursor: pointer;
     border-radius: 5px;
 }
+.alert{
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%, -60px);
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 17px;
+    color: white;
+    transition: transform ease-in-out 0.2s;
+}

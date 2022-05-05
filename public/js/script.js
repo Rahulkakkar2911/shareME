@@ -1,3 +1,4 @@
+const alertBox = document.querySelector('.alert');
 const dropzone = document.querySelector('.drop-zone');
 const fileInput = document.querySelector('.file-input');
 const browseBtn = document.querySelector('.browse-btn');
@@ -29,7 +30,6 @@ dropzone.addEventListener('drop', (e) => {
     if(dropzone.classList.contains('dragged'))
         dropzone.classList.remove('dragged');
     const files = e.dataTransfer.files;
-    console.log(files);
     //agar koi file h to hi upload kr
     if(files.length){
         fileInput.files = files;
@@ -57,6 +57,10 @@ const uploadFile = () => {
             onUploadSuccess(JSON.parse(xhr.response));
         }
     }
+    xhr.upload.onerror = () => {
+        fileInput.value = "";
+        alertBox(`Error in Upload : ${xhr.statusText}`,false);
+    }
     //fired when there is a change in upload progress
     xhr.upload.onprogress = uploadProgress;
     xhr.open("POST", uploadURL);
@@ -83,6 +87,7 @@ const onUploadSuccess = ({file:url}) => {
 copyBtn.addEventListener('click', () => {
     fileURLInput.select();
     document.execCommand("copy");
+    showAlert("Copied to Clipboard", true);
 });
 emailForm.addEventListener('submit',async (e) => {
     //prevent reloading
@@ -106,6 +111,22 @@ emailForm.addEventListener('submit',async (e) => {
     const {success} = await response.json();
     if(success){
         shareContainer.style.display = "none";
+        showAlert('Email Sent!' ,true)
     }
 })
-
+let alertTimer;
+const showAlert = (message, success) => {
+    if(success === true)
+    {
+        alertBox.style.backgroundColor = `#83BD75`;
+    }
+    else{
+        alertBox.style.backgroundColor = "#EB5353";
+    }
+    alertBox.innerText = message;
+    alertBox.style.transform = "translate(-50%, 0px)";
+    clearTimeout(alertTimer);
+    alertTimer = setTimeout(() => {
+    alertBox.style.transform = "translate(-50%, -60px)";
+    },2000)
+}
