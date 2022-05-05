@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShareME | File Sharing App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="upload-container">
+      <div class="drop-zone">
+        <div class="illustration">
+          <img
+            class="center"
+            src="img/file.svg"
+            alt="file-icon"
+            draggable="false"
+          />
+          <img
+            class="left"
+            src="img/file.svg"
+            alt="file-icon"
+            draggable="false"
+          />
+          <img
+            class="right"
+            src="img/file.svg"
+            alt="file-icon"
+            draggable="false"
+          />
+        </div>
+        <input class="file-input" type="file" name="" id="" />
+        <div class="title">
+          Drop your files here or, <span class="browse-btn">browse</span>
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="bg-progress">
+          <div class="details">
+            <div class="title">
+              Uploading....
+              <div class="percent"><span class="percent-num">0</span>%</div>
+              <div class="progress-bar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="share-container">
+        <p class="expire">Link expires in 24 hrs</p>
+        <div class="input-container">
+          <input
+            type="text"
+            name=""
+            id="fileURL"
+            readonly
+            value="https://iconscout.com/unicons/explore/line"
+          />
+          <img src="img/copy-icon.svg" alt="copy-icon" />
+        </div>
+        <p>Or send via email</p>
+        <div class="email-container">
+          <form id="email-form">
+            <div class="field">
+              <label for="sender"> Your email </label>
+              <input type="email" name="from-email" id="sender" required />
+            </div>
+            <div class="field">
+              <label for="reciever"> Reciever's email </label>
+              <input type="email" name="to-email" id="reciever" required />
+            </div>
+            <button>send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="alert">
+      
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>

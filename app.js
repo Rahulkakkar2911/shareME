@@ -18,6 +18,9 @@ app.use(express.json());
 
 
 //api
+app.get('/', (req,res) => {
+    res.render('index');
+})
 app.use('/files', showRouter);
 app.use('/api/files', filesRouter);
 app.use('/files/download', downloadRouter)

@@ -1,0 +1,191 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eff5fe;
+}
+.upload-container{
+    background-color: #ffffff;
+    border-radius: 25px;
+    box-shadow: 8px 20px 20px rgba(0, 0, 0, 0.214);
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+}
+.drop-zone{
+    margin:25px;    
+    border-radius: 10px;
+    width: 500px;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px dashed #0288d147;
+    transition: all 0.1s ease-in-out;
+}
+.dragged.drop-zone{
+    background:#eff5fe;
+    border-color: #2196f3;
+}
+.illustration{
+    width: 75px;
+    height: 90px;
+    position: relative;
+}
+.illustration img{
+    width: 75px;
+    position: absolute;
+    transition: transform 0.25s ease-in-out;
+}
+.illustration .center{
+    z-index: 3;
+}
+.drop-zone .title{
+    font-weight: 500;
+}
+.illustration .right, .illustration .left{
+    filter: grayscale(0.5);
+}
+.dragged .illustration .right{
+    transform: translateX(20px) rotate(10deg) scale(0.9);
+    transform-origin: bottom;
+}
+.dragged .illustration .left{
+    transform: translateX(-20px) rotate(-10deg) scale(0.9);
+    transform-origin: bottom;
+}
+.dragged .illustration .center{
+    transform: translate(0, -10px);
+}
+.file-input{
+    display: none;
+}
+.browse-btn{
+    color:#2196f3;
+    cursor: pointer;
+}
+.progress-container{
+    display: none;
+    position: relative;
+    width: 500px;
+    height: 75px;
+    border: 2px solid #eff5fe;
+    margin-bottom: 25px;
+    border-radius: 10px;
+}
+.progress-container .bg-progress{
+    background-color: #eff5fe;
+    width: 0%;
+    height: 100%;
+    border-radius: 3%;
+    transition: width 0.25s linear;
+    position: absolute;
+}
+.progress-container .details{
+    position: absolute;
+    z-index: 1;
+    margin: 10px 15px;
+    width: calc(100% - 30px);
+}
+.details .percent{
+    margin: 1px;
+    opacity: 0.8;
+    font-size: 13px;
+}
+.progress-bar{
+    width: 0%;
+    height: 3px;
+    background-color: #2196f3;
+    border-radius: 15px;
+    transform-origin: left;
+}
+.share-container{
+    width: 500px;
+    margin-bottom: 10px;
+    display: none;
+}
+.share-container .input-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.share-container .input-container .icon-copy{
+    height: 100%;
+    position: relative;
+}
+.share-container .input-container input{
+    width: 100%;
+    border: 2px dashed #0288d147;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.752);
+    background-color: #f5fcff;
+}
+.share-container .input-container img{
+    height: 22px;
+    width: 30px;
+    position: absolute;
+    right: 7px;
+    top: 12px;
+    cursor: pointer;
+    background: #f5fcff;
+}
+p{
+    opacity: 0.85;
+    text-align: center;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+.email-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.email-container form{
+    width: 100%;
+    border: 2px solid #0288d147;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.email-container .field{
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+.email-container label{
+    font-size: 16px;
+}
+.email-container input{
+    font-size: 14px;
+    border: none;
+    border-bottom: 2px solid #0288d147;
+    outline: none;
+    text-align: center;
+}
+.email-container button{
+    font-size: 18px;
+    text-align: center;
+    padding: 4px 30px;
+    margin-top: 15px;
+    background-color: #2975f1;
+    outline: none;
+    border: none;
+    color: #e6ebed;
+    cursor: pointer;
+    border-radius: 5px;
+}
