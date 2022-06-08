@@ -1,0 +1,63 @@
+body{
+    color:#d4eaf7;
+    background-color: #121212;
+}
+.app-title{
+    color:#d4eaf7;
+}
+.btn-theme button{
+    background-color: #0f0037;
+}
+.btn-theme button span{
+    color: #d4eaf7;
+}
+.upload-container{
+    background-color: #0f0037;
+}
+.drop-zone{ 
+    border: 2px dashed #bd6ff16a;
+}
+.dragged.drop-zone{
+    background-color: #10003a;
+    border: 2px dashed #bd6ff195;
+}
+.browse-btn{
+    color: #dca7ffdb;
+}
+.progress-container{
+    border: 2px solid #0f0037;
+}
+.progress-container .bg-progress{
+    background-color: #1e016e;
+}
+.progress-bar{
+    background-color:#bd6ff195;
+}
+.share-container .input-container input{
+    background-color: #0f0037;
+    border: 2px dashed #bd6ff195;
+    color: #d4eaf7;
+}
+.email-container form{
+    border: 2px dashed #bd6ff195;
+}
+.email-container input{
+    caret-color: #bd6ff195;
+    background-color: #0f0037;
+    border-bottom: 2px solid #bd6ff195;
+}
+.email-container button, .QR-btn, .email-btn{
+    background-color: #610094;
+}
+.email-container button:hover, .QR-btn:hover, .email-btn:hover{
+    background-color: #a73be1bc;
+}
+.qr-container{
+    background-color: #080e38;
+}
+.qr-img-container img{
+    background-color:#141b50;
+}
+.share-container .input-container span{
+    background-color: #080e38;
+}

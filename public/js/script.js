@@ -8,8 +8,41 @@ const progressBar = document.querySelector('.progress-bar');
 const progressContainer = document.querySelector('.progress-container');
 const shareContainer = document.querySelector('.share-container');
 const fileURLInput = document.querySelector('.input-container input');
-const copyBtn = document.querySelector('.input-container img');
+const copyBtn = document.querySelector('.input-container span');
 const emailForm = document.querySelector('#email-form');
+const emailcontainer = document.querySelector('.email-container');
+const emailBtn = document.querySelector('.email-btn');
+const QRBtn = document.querySelector('.QR-btn');
+const modal = document.querySelector('.modal');
+const modalCloseBtn = document.querySelector('.close-btn-qr');
+const qrImg = document.querySelector('.qr-img-container img');
+const themebtn = document.querySelector('.switch-theme');
+const themeIcon = document.querySelector('.switch-theme span')
+const themeSwitchCss = document.querySelector('#theme_switcher');
+let fileLink = "";
+let currentTheme = "light_mode"; // default
+
+themebtn.addEventListener('click', ()=>{
+    if(currentTheme === "light_mode"){
+        currentTheme = 'dark_mode';
+        themeIcon.innerText = 'light_mode';
+        console.log(currentTheme);
+        themeSwitchCss.href = "css/styledark.css";
+    }
+    else{
+        currentTheme = 'light_mode';
+        themeIcon.innerText = 'dark_mode';
+        console.log(currentTheme);
+        themeSwitchCss.href = "#";
+
+    }
+})
+
+
+modalCloseBtn.addEventListener('click', ()=>{
+    
+    modal.classList.add('hide');
+})
 
 dropzone.addEventListener('dragover', (e) => {
     //preventing default download
@@ -81,6 +114,7 @@ const onUploadSuccess = ({file:url}) => {
     emailForm[2].removeAttribute("disabled");
     shareContainer.style.display = "block";
     fileURLInput.value = url;
+    fileLink = url;
     progressContainer.style.display = "none";
 }
 //copy to clipboard
@@ -130,3 +164,16 @@ const showAlert = (message, success) => {
     alertBox.style.transform = "translate(-50%, -60px)";
     },2000)
 }
+QRBtn.addEventListener('click', () => {
+    emailcontainer.style.display = "none";
+    if(fileLink === ""){
+        return;
+    }
+    qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=350x350&data=${fileLink}`;
+    qrImg.addEventListener('load', ()=>{
+        modal.classList.remove('hide');
+    });
+});
+emailBtn.addEventListener('click', () => {
+    emailcontainer.style.display = "flex";
+});

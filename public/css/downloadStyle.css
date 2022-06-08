@@ -1,3 +1,8 @@
+:root{
+    --bgcolor: #eff5fe;
+    --contcolor: #ffffff;
+    --bordercolor: #2196f3;
+}
 *{
     margin: 0;
     padding: 0;
@@ -9,7 +14,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: cornsilk;
+    background-color: var(--bgcolor);
 }
 .download-container{
     display: flex;
@@ -17,8 +22,9 @@ body{
     justify-content: center;
     flex-direction: column;
     border-radius: 20px;
-    background-color: #fff;
+    background-color: var(--contcolor);
     padding: 40px 45px;
+    box-shadow: 8px 20px 20px rgba(0, 0, 0, 0.096);
 }
 .download-container h3{
     font-size: 20px;

@@ -12,12 +12,38 @@
       rel="stylesheet"
     />
     <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" id="theme_switcher" href="#" />
   </head>
   <body>
+    <div class="app-title">
+      <span class="material-symbols-outlined"> share </span>
+      <h1>ShareME</h1>
+    </div>
+
+    <div class="btn-theme">
+      <button class="switch-theme">
+        <span class="material-symbols-outlined"> dark_mode </span>
+      </button>
+    </div>
+    <div class="modal hide">
+      <div class="qr-container">
+        <div class="header">
+          <div class="title-qr">QR-CODE</div>
+          <span class="close-btn-qr material-symbols-outlined">close</span>
+        </div>
+        <div class="qr-img-container">
+          <img src="img/qrcodestock.jpg" alt="qr-code" />
+        </div>
+      </div>
+    </div>
     <div class="upload-container">
       <div class="drop-zone">
         <div class="illustration">
@@ -66,9 +92,12 @@
             readonly
             value="https://iconscout.com/unicons/explore/line"
           />
-          <img src="img/copy-icon.svg" alt="copy-icon" />
+          <span class="material-symbols-outlined"> content_copy </span>
         </div>
-        <p>Or send via email</p>
+        <p>
+          <button class="QR-btn">Scan QR</button> Or
+          <button class="email-btn">Send Via Mail</button>
+        </p>
         <div class="email-container">
           <form id="email-form">
             <div class="field">
@@ -84,8 +113,7 @@
         </div>
       </div>
     </div>
-    <div class="alert">
-    </div>
+    <div class="alert"></div>
     <script src="js/script.js"></script>
   </body>
 </html>
