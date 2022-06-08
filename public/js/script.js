@@ -21,19 +21,40 @@ const themebtn = document.querySelector('.switch-theme');
 const themeIcon = document.querySelector('.switch-theme span')
 const themeSwitchCss = document.querySelector('#theme_switcher');
 let fileLink = "";
-let currentTheme = "light_mode"; // default
+let currentTheme =  localStorage.getItem('theme') || "light_mode"; // default
+
+const storeLocalTheme = (theme) => {
+    currentTheme = theme;
+    localStorage.setItem("theme", theme);
+}
+
+const setTheme = (theme) => {
+    if(theme === "light_mode"){
+        theme = 'dark_mode';
+        themeIcon.innerText = 'light_mode';
+        storeLocalTheme('dark_mode');
+        themeSwitchCss.href = "css/styledark.css";
+    }
+    else{
+        theme = 'light_mode';
+        themeIcon.innerText = 'dark_mode';
+        storeLocalTheme('light_mode');
+        themeSwitchCss.href = "#";
+    }
+}
+
 
 themebtn.addEventListener('click', ()=>{
     if(currentTheme === "light_mode"){
         currentTheme = 'dark_mode';
         themeIcon.innerText = 'light_mode';
-        console.log(currentTheme);
+        storeLocalTheme('dark_mode');
         themeSwitchCss.href = "css/styledark.css";
     }
     else{
         currentTheme = 'light_mode';
         themeIcon.innerText = 'dark_mode';
-        console.log(currentTheme);
+        storeLocalTheme('light_mode');
         themeSwitchCss.href = "#";
 
     }
@@ -185,3 +206,5 @@ QRBtn.addEventListener('click', () => {
 emailBtn.addEventListener('click', () => {
     emailcontainer.style.display = "flex";
 });
+//UI update
+setTheme(currentTheme);

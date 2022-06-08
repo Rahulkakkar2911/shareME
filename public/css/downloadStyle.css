@@ -9,6 +9,20 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+.app-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top:2%;
+    left:2%;
+    color:#2196f3;
+}
+.app-title span{
+    margin-top: -1px;
+    font-size: 32px;
+    margin-right: 12px;
+}
 body{
     height: 100vh;
     display: flex;
