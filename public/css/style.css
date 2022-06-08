@@ -3,6 +3,16 @@
     --contcolor: #ffffff;
     --bordercolor: #2196f3;
 }
+@keyframes rotateby360 {
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
 *{
     margin:0;
     padding:0;
@@ -24,9 +34,9 @@
     margin-right: 12px;
 }
 .btn-theme{
- position: fixed;
- top:2%;
- right: 2%;   
+    position: fixed;
+    top:2%;
+    right: 2%;
 }
 .btn-theme button{
     display: flex;
@@ -39,6 +49,9 @@
     border:none;
     background-color: white;
     padding: 7px;
+}
+.switch-theme span:hover{
+    animation: rotateby360 0.35s ease-in;
 }
 .btn-theme button span{
     color: black;
@@ -56,13 +69,13 @@ body{
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.507);
     z-index: 99;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
-
 .qr-container{
+    top:  -100%;
+    left:  50%;
+    transform: translate(-50%, -50%);
     position: relative;
+    transition: all 0.4s cubic-bezier( 0.56, 0.25, 0.23, 0.78);
     background-color: white;
     width: 500px;
     height: 500px;
@@ -79,6 +92,9 @@ body{
 }
 .modal .header span{
     cursor: pointer;
+}
+.qr-container.popin{
+    top:50%;
 }
 .qr-img-container{
     width: 100%;

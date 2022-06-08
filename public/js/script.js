@@ -15,6 +15,7 @@ const emailBtn = document.querySelector('.email-btn');
 const QRBtn = document.querySelector('.QR-btn');
 const modal = document.querySelector('.modal');
 const modalCloseBtn = document.querySelector('.close-btn-qr');
+const qrContainer = document.querySelector('.qr-container');
 const qrImg = document.querySelector('.qr-img-container img');
 const themebtn = document.querySelector('.switch-theme');
 const themeIcon = document.querySelector('.switch-theme span')
@@ -37,11 +38,12 @@ themebtn.addEventListener('click', ()=>{
 
     }
 })
-
-
 modalCloseBtn.addEventListener('click', ()=>{
     
-    modal.classList.add('hide');
+    qrContainer.classList.remove('popin');
+    setTimeout(() => {
+        modal.classList.add('hide');
+    }, 600);
 })
 
 dropzone.addEventListener('dragover', (e) => {
@@ -151,8 +153,13 @@ emailForm.addEventListener('submit',async (e) => {
 let alertTimer;
 const showAlert = (message, success) => {
     if(success === true)
-    {
-        alertBox.style.backgroundColor = `#83BD75`;
+    {   
+        if(currentTheme === "dark_mode"){
+            alertBox.style.backgroundColor = `#646FD4`;
+        }
+        else{
+           alertBox.style.backgroundColor = `#83BD75`;
+        }
     }
     else{
         alertBox.style.backgroundColor = "#EB5353";
@@ -170,8 +177,9 @@ QRBtn.addEventListener('click', () => {
         return;
     }
     qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=350x350&data=${fileLink}`;
+    modal.classList.remove('hide');
     qrImg.addEventListener('load', ()=>{
-        modal.classList.remove('hide');
+        qrContainer.classList.add('popin');
     });
 });
 emailBtn.addEventListener('click', () => {
