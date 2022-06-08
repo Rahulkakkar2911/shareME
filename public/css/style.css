@@ -3,6 +3,14 @@
     --contcolor: #ffffff;
     --bordercolor: #2196f3;
 }
+::selection{
+    color: none;
+    background: none;
+}
+::-moz-selection {
+    color: none;
+    background: none;
+}
 @keyframes rotateby360 {
     0%
     {
