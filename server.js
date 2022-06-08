@@ -1,16 +1,25 @@
 const app = require('./app');
+const Bree = require('bree');
 const dotenv = require('dotenv')
+const db = require('./config/db');
 const mongoose = require('mongoose');
 dotenv.config({
     path:'./config.env'
 });
+
 const PORT = process.env.PORT;
-//DataBase
-mongoose.connect(process.env.MONGO_CONNECTION_URL).then(()=>{
-    console.log(`😊 DB Connection successfull`);
-}).catch(err => {
-    console.log(`💣 DB Connection ERR -> ${err}`);
+
+//DataBase connection
+db();
+const bree = new Bree({
+    jobs:[{
+        name: 'deletion',
+        interval:"at 02:00 am",
+        // timeout:''
+    }]
 });
+
+bree.start();
 
 const server = app.listen(PORT, (err) => {
     if(err){

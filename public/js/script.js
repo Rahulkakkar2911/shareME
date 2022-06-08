@@ -30,20 +30,18 @@ const storeLocalTheme = (theme) => {
 
 const setTheme = (theme) => {
     if(theme === "light_mode"){
-        theme = 'dark_mode';
+        currentTheme = 'dark_mode';
         themeIcon.innerText = 'light_mode';
         storeLocalTheme('dark_mode');
         themeSwitchCss.href = "css/styledark.css";
     }
     else{
-        theme = 'light_mode';
+        currentTheme = 'light_mode';
         themeIcon.innerText = 'dark_mode';
         storeLocalTheme('light_mode');
         themeSwitchCss.href = "#";
     }
 }
-
-
 themebtn.addEventListener('click', ()=>{
     if(currentTheme === "light_mode"){
         currentTheme = 'dark_mode';

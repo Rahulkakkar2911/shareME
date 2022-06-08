@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bree": "^8.0.5",
     "dotenv": "^16.0.0",
     "ejs": "^3.1.7",
     "express": "^4.18.1",
