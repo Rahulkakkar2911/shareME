@@ -80,7 +80,7 @@ dropzone.addEventListener('dragleave', (e) => {
         dropzone.classList.remove('dragged');
 });
 
-const host = `http://localhost:8000`;
+const host = `https://rocky-bayou-91584.herokuapp.com`;
 const uploadURL = `${host}/api/files`;
 const emailURL = `${host}/api/files/send`;
 dropzone.addEventListener('drop', (e) => {
