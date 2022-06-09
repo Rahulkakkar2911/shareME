@@ -1,12 +1,12 @@
 {
-  "name": "ShareMe",
+  "name": "shareme",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "set NODE_ENV=development&&node server.js",
-    "start:dev": "set NODE_ENV=production&&nodemon server.js"
+    "start": "set NODE_ENV=production&&node server.js",
+    "start:dev": "set NODE_ENV=development&&nodemon server.js"
   },
   "keywords": [],
   "author": "",

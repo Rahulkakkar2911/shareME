@@ -4,9 +4,6 @@ const router = require('express').Router();
 const File = require('../models/file');
 router.use('/', express.static('public'));
 
-
-
-
 router.get('/:uuid', async (req,res) => {
     try{
         const uuid = req.params.uuid;
@@ -21,8 +18,7 @@ router.get('/:uuid', async (req,res) => {
             uuid,
             fileName: file.filename,
             fileSize: file.size,
-            downloadLink:`${process.env.APP_BASE_URL}/files/download/${uuid}`
-            //http://localhost:8000/files/download/fhahasgacba-abhadbacja
+            downloadLink:`${process.env.APP_BASE_URL_PROD}/files/download/${uuid}`
         })
     }catch(err){
         return res.render('download', {
