@@ -330,7 +330,7 @@ p{
     display: none;
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 520px) {
     /* For mobile phones: */
     .app-title{
         top:2%;
@@ -496,7 +496,7 @@ p{
         margin-top: 5px;
     }
 }
-@media only screen and (min-width:361px) and (max-width: 660px){
+@media only screen and (min-width:520px) and (max-width: 660px){
     /* For Large Mobile phones: */
     .app-title h1{
         font-size: 24px;
