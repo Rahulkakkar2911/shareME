@@ -51,36 +51,41 @@ router.post('/' , (req,res) => {
 
 router.post('/send', async (req, res) => {
     //validate;
-    const {uuid, emailTo, emailFrom} = req.body;
-    //get data from db
-    const file = await File.findOne({uuid});
-    //what if user send a email and then again click the button, think once!
-    //email can be sent only once for a file.
-    if(file.sender){
-        res.status(401).send({
-            error: "Email already sent!"
+    try{
+        const {uuid, emailTo, emailFrom} = req.body;
+        //get data from db
+        const file = await File.findOne({uuid});
+        //what if user send a email and then again click the button, think once!
+        //email can be sent only once for a file.
+        if(file.sender){
+            res.status(401).send({
+                error: "Email already sent!"
+            });
+        }
+        //email not sent previously
+        file.sender = emailFrom;
+        file.reciever = emailTo;
+        const response = await file.save();
+        //send email
+        sendMail({
+            from : emailFrom,
+            to: emailTo,
+            subject : "ShareMe File Share",
+            text: `${emailFrom} shared a file with you.`,
+            html: emailTemplate({
+                emailFrom: emailFrom,
+                downloadLink: `${process.env.APP_BASE_URL_PROD}/files/${file.uuid}`,
+                size: parseInt(file.size/1000) + " KB",
+                expires: `24 hours`
+            })
+        });
+        res.send({
+            success: true
         });
     }
-    //email not sent previously
-    file.sender = emailFrom;
-    file.reciever = emailTo;
-    const response = await file.save();
-    //send email
-    sendMail({
-        from : emailFrom,
-        to: emailTo,
-        subject : "ShareMe File Share",
-        text: `${emailFrom} shared a file with you.`,
-        html: emailTemplate({
-            emailFrom: emailFrom,
-            downloadLink: `${process.env.APP_BASE_URL_PROD}/files/${file.uuid}`,
-            size: parseInt(file.size/1000) + " KB",
-            expires: `24 hours`
-         })
-    });
-    res.send({
-        success: true
-    });
+    catch(err){
+        console.log(`❌Error occured in mail`,err);
+    }
 });
 
 module.exports = router;
