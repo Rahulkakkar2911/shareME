@@ -3,6 +3,14 @@
     --contcolor: #ffffff;
     --bordercolor: #2196f3;
 }
+::selection{
+    color:none;
+    background-color: none;
+}
+::-moz-selection{
+    color:none;
+    background-color: none;
+}
 *{
     margin: 0;
     padding: 0;

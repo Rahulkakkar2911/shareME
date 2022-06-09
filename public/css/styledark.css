@@ -42,6 +42,7 @@ body{
     border: 2px dashed #bd6ff195;
 }
 .email-container input{
+    color: #d4eaf7;
     caret-color: #bd6ff195;
     background-color: #0f0037;
     border-bottom: 2px solid #bd6ff195;

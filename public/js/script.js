@@ -20,42 +20,46 @@ const qrImg = document.querySelector('.qr-img-container img');
 const themebtn = document.querySelector('.switch-theme');
 const themeIcon = document.querySelector('.switch-theme span')
 const themeSwitchCss = document.querySelector('#theme_switcher');
+
 let fileLink = "";
-let currentTheme =  localStorage.getItem('theme') || "light_mode"; // default
+let currentTheme = localStorage.getItem('theme') || localStorage.setItem('theme', 'light_mode');
+
+window.addEventListener('load', ()=>{
+    let currentTheme = localStorage.getItem('theme');
+    if(currentTheme === 'light_mode'){
+        themeIcon.innerText = 'dark_mode';
+        themeSwitchCss.href = "#";
+    }
+    else if(currentTheme === 'dark_mode'){
+        themeIcon.innerText = 'light_mode';
+        themeSwitchCss.href = "css/styledark.css";
+    }
+})
+
 
 const storeLocalTheme = (theme) => {
-    currentTheme = theme;
     localStorage.setItem("theme", theme);
 }
 
-const setTheme = (theme) => {
+const changeTheme = (theme) => {
     if(theme === "light_mode"){
         currentTheme = 'dark_mode';
-        themeIcon.innerText = 'light_mode';
         storeLocalTheme('dark_mode');
+        themeIcon.innerText = 'light_mode';
         themeSwitchCss.href = "css/styledark.css";
     }
-    else{
+    else if(theme === "dark_mode"){
         currentTheme = 'light_mode';
-        themeIcon.innerText = 'dark_mode';
         storeLocalTheme('light_mode');
+        themeIcon.innerText = 'dark_mode';
         themeSwitchCss.href = "#";
     }
 }
-themebtn.addEventListener('click', ()=>{
-    if(currentTheme === "light_mode"){
-        currentTheme = 'dark_mode';
-        themeIcon.innerText = 'light_mode';
-        storeLocalTheme('dark_mode');
-        themeSwitchCss.href = "css/styledark.css";
-    }
-    else{
-        currentTheme = 'light_mode';
-        themeIcon.innerText = 'dark_mode';
-        storeLocalTheme('light_mode');
-        themeSwitchCss.href = "#";
 
-    }
+// setTheme(currentTheme);
+
+themebtn.addEventListener('click', ()=>{
+    changeTheme(currentTheme);
 })
 modalCloseBtn.addEventListener('click', ()=>{
     
@@ -135,6 +139,10 @@ const onUploadSuccess = ({file:url}) => {
     emailForm[2].removeAttribute("disabled");
     shareContainer.style.display = "block";
     fileURLInput.value = url;
+    //reset
+    bgProgress.style.width = `${0}%`;
+    percentageSpan.innerHTML = 0;
+    progressBar.style.width = `${0}%`;
     fileLink = url;
     progressContainer.style.display = "none";
 }
@@ -154,8 +162,14 @@ emailForm.addEventListener('submit',async (e) => {
         emailTo:emailForm.elements["to-email"].value,
         emailFrom:emailForm.elements["from-email"].value,
     }
-    emailForm[2].setAttribute("disabled", "true");
-    // console.table(formData);
+    console.table(formData);
+
+    if(!formData.uuid || !formData.emailTo || !formData.emailFrom){
+        e.preventDefault();
+        showAlert("All fields are required!", false);
+        return;
+    }
+    //form data is valid
     const response = await fetch(emailURL, {
         method:"POST",
         headers: {
@@ -163,10 +177,11 @@ emailForm.addEventListener('submit',async (e) => {
         },
         body : JSON.stringify(formData)
     });
-    const {success} = await response.json();
-    if(success){
+    emailForm[2].setAttribute("disabled", "true");
+    const result = await response.json();
+    if(result.success){
         shareContainer.style.display = "none";
-        showAlert('Email Sent!' ,true)
+        showAlert('Email Sent!' ,true);
     }
 })
 let alertTimer;
@@ -204,5 +219,3 @@ QRBtn.addEventListener('click', () => {
 emailBtn.addEventListener('click', () => {
     emailcontainer.style.display = "flex";
 });
-//UI update
-setTheme(currentTheme);

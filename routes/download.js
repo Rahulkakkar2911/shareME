@@ -10,14 +10,12 @@ router.get('/:uuid',async (req, res) => {
     if(!file){
         //file is null
         return res.render('download', {
-            error: "Link has been Expired"
+            error: "Link has been Expired",
+            title: "Expired Link"
         });
     }
     const filePath = `${__dirname}/../${file.path}`;
     res.download(filePath);
-})
-
-
-
+});
 
 module.exports = router;

@@ -14,8 +14,8 @@ app.use('/', express.static('public'));
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
 //Body parser
-app.use(express.json());
 
+app.use(express.json());
 
 //api
 app.get('/', (req,res) => {

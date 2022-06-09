@@ -54,12 +54,6 @@ router.post('/' , (req,res) => {
 router.post('/send', async (req, res) => {
     //validate;
     const {uuid, emailTo, emailFrom} = req.body;
-    console.log(req.body);
-    if (!uuid || !emailTo || !emailFrom) {  
-        return res.status(422).send({
-            error: "All fields are required."
-        })
-    }
     //get data from db
     const file = await File.findOne({uuid});
     //what if user send a email and then again click the button, think once!
