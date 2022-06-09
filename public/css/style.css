@@ -255,7 +255,8 @@ body{
     right: 2px;
     top: 12px;
     cursor: pointer;
-    background: var(--bgcolor);
+    color: rgb(130, 130, 130);
+    display: inline-block;
 }
 p{
     opacity: 0.85;
@@ -308,19 +309,16 @@ p{
     transition: transform ease-in-out 0.2s;
 }
 .email-container button, .QR-btn, .email-btn{
-    height: 35px;
-    padding: 7px 10px;
+    padding: 5px 8px;
     margin: 0 5px 0 5px;
     color: white;
     background-color: #2196f3;
-    border-radius: 10px;
+    border-radius: 7px;
     outline:none;
     border: none;
     cursor: pointer;
 }
 .email-container button{
-    width: 100px;
-    height: 35px;
     margin-top: 7px;
 }
 .email-container button:hover, .QR-btn:hover, .email-btn:hover{
@@ -433,7 +431,7 @@ p{
         border-radius: 15px;
     }
     .share-container{
-        width: 260px;
+        width: 263px;
         margin-bottom: 10px;
     }
     .share-container .input-container input{
@@ -467,15 +465,16 @@ p{
         padding: 7px;
     }
     .email-container .field{
-        font-size: 14px;
+        font-size: 12px;
         width: 95%;
         margin-bottom: 10px;
     }
     .email-container label{
-        font-size: 12px;
+        font-size: 11px;
     }
     .email-container input{
-        font-size: 10px;
+        width: 40%;
+        font-size: 11px;
     }
     .alert{
         padding: 7px 15px;
@@ -483,20 +482,11 @@ p{
         font-size: 12px;
     }
     .email-container button, .QR-btn, .email-btn{
-        font-size: 12px;
-        height: 25px;
-        padding: 4px 7px;
-        margin: 0 5px 0 5px;
+        font-size: 10px;
         border-radius: 7px;
     }
-    .email-container button{
-        font-size: 12px;
-        height: 25px;
-        padding: 4px 7px;
-        margin-top: 5px;
-    }
 }
-@media only screen and (min-width:520px) and (max-width: 660px){
+@media only screen and (min-width:521px) and (max-width: 660px){
     /* For Large Mobile phones: */
     .app-title h1{
         font-size: 24px;
@@ -779,7 +769,4 @@ p{
         padding: 5px 10px;
         margin-top: 7px;
     }
-}
-@media only screen and (min-width:1281px){
-    
 }

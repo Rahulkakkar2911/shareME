@@ -77,3 +77,110 @@ body{
 .download-btn:hover{
     background-color: rgba(62, 62, 255, 0.663);
 }
+/* responsive CSS */
+
+@media only screen and (max-width: 520px) {
+    /* For mobile phones: */
+    .app-title h1{
+        font-size: 20px;
+    }
+    .app-title span{
+        font-size: 20px;
+        margin-right: 5px;
+    }
+    .download-container{
+        font-size: 14px;
+        border-radius: 12px;
+        background-color: var(--contcolor);
+        padding: 20px 25px;
+        box-shadow: 8px 20px 20px rgba(0, 0, 0, 0.096);
+    }
+    .download-container h3{
+        font-size: 14px;
+    }
+    .download-container .expires, .file-size{
+        font-size: 12px;
+    }
+    .file-name{
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: 15px;
+    }
+    .file-size{
+        margin-bottom: 16px;
+    }
+    .download-btn{
+        font-size: 14px;
+        padding: 4px 20px;
+        border-radius: 3px;
+    }
+}
+@media only screen and (min-width:521px) and (max-width: 660px){
+    /* For Large Mobile phones: */
+    .app-title h1{
+        font-size: 20px;
+    }
+    .app-title span{
+        font-size: 20px;
+        margin-right: 5px;
+    }
+    .download-container{
+        font-size: 14px;
+        border-radius: 12px;
+        padding: 20px 25px;
+    }
+    .download-container h3{
+        font-size: 14px;
+    }
+    .download-container .expires, .file-size{
+        font-size: 12px;
+    }
+    .file-name{
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: 15px;
+    }
+    .file-size{
+        margin-bottom: 16px;
+    }
+    .download-btn{
+        font-size: 14px;
+        padding: 4px 20px;
+        border-radius: 3px;
+    }
+}
+@media only screen and (min-width:661px) and (max-width: 1280px){
+    /* For Tablets and Laptops: */
+    .app-title h1{
+        font-size: 30px;
+    }
+    .app-title span{
+        font-size: 30px;
+        margin-right: 5px;
+    }
+    .download-container{
+        font-size: 18px;
+        border-radius: 12px;
+        padding: 40px 45px;
+    }
+    .download-container h3{
+        font-size: 18px;
+    }
+    .download-container .expires, .file-size{
+        font-size: 14px;
+    }
+    .file-name{
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 15px;
+    }
+    .file-size{
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+    .download-btn{
+        font-size: 16px;
+        padding: 8px 28px;
+        border-radius: 7px;
+    }
+}

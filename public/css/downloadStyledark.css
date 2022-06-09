@@ -11,14 +11,7 @@ body{
 }
 .download-btn{
     color: #d4eaf7;
-    font-size: 15px;
-    padding: 5px 25px;
     background-color: #610094;
-    border-radius: 7px;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
 }
 .download-btn:hover{
     background-color: #a73be1bc;
