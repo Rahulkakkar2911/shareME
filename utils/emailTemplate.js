@@ -131,7 +131,7 @@ module.exports = function({emailFrom, downloadLink, size, expires}){
                                     </tr>
                                 </tbody>
                                 </table>
-                                <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Thank you for using inShare service.</p>
+                                <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Thank you for using shareME service.</p>
                                 <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Good luck! Hope it works.</p>
                             </td>
                             </tr>
@@ -148,7 +148,7 @@ module.exports = function({emailFrom, downloadLink, size, expires}){
                         <tr>
                         <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
                             <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">ShareMe inc. Delhi, India</span>
-                            <br> Want to share a file? <a href="http://localhost:8000" style="text-decoration: underline; color: #999999; font-size: 12px; text-align: center;">ShareMe</a>.
+                            <br> Want to share a file? <a href="https://rocky-bayou-91584.herokuapp.com" style="text-decoration: underline; color: #999999; font-size: 12px; text-align: center;">ShareMe</a>.
                         </td>
                         </tr>
                         <tr>
