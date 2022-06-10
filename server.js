@@ -27,4 +27,11 @@ const server = app.listen(PORT, (err) => {
         return;
     }
     console.log(`🔁 ShareMe App is running on port: ${PORT}`);
-})
+});
+
+process.on('SIGTERM', () => {
+    console.log('SIGTERM received');
+    server.close(() => {
+         console.log('Process terminated');
+    });
+});
