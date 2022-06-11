@@ -19,8 +19,7 @@ async function datafetch(){
                 //remove from storage
                 fs.unlinkSync(file.path);
                 //from db
-                await file.remove();
-
+                await file.deleteOne();
                 console.log(`successfully deleted ${file.filename}`);
             
             } catch (error) {
