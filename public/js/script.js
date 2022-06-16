@@ -117,7 +117,8 @@ const uploadFile = () => {
     }
     xhr.upload.onerror = () => {
         fileInput.value = "";
-        showAlert(`Error in Upload : ${xhr.statusText}`,false);
+        showAlert(`Error, Please try Again!`,false);
+        location.reload();
     }
     //fired when there is a change in upload progress
     xhr.upload.onprogress = uploadProgress;
