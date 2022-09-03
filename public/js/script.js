@@ -19,7 +19,14 @@ const qrContainer = document.querySelector('.qr-container');
 const qrImg = document.querySelector('.qr-img-container img');
 const themebtn = document.querySelector('.switch-theme');
 const themeIcon = document.querySelector('.switch-theme span')
-const themeSwitchCss = document.querySelector('#theme_switcher');
+const bodyEl = document.querySelector('body');
+const appTitle = document.querySelector('.app-title');
+const downloadContainer = document.querySelector('.download-container');
+const downloadBtn = document.querySelector('.download-btn');
+const uploadContainer = document.querySelector('.upload-container');
+const progressContainerBar = document.querySelector('.progress-container .bg-progress');
+const emailInputs = document.querySelectorAll('.email-container input');
+const emailContainerBtn = document.querySelector('.email-container button')
 
 let fileLink = "";
 let currentTheme = localStorage.getItem('theme') || localStorage.setItem('theme', 'light_mode');
@@ -27,15 +34,60 @@ let currentTheme = localStorage.getItem('theme') || localStorage.setItem('theme'
 window.addEventListener('load', ()=>{
     let currentTheme = localStorage.getItem('theme');
     if(currentTheme === 'light_mode'){
+        currentTheme = 'light_mode';
+        storeLocalTheme('light_mode');
         themeIcon.innerText = 'dark_mode';
-        themeSwitchCss.href = "#";
+        bodyEl.classList.remove('dark');
+        appTitle.classList.remove('dark');
+        themebtn.classList.remove('dark');
+        themeIcon.classList.remove('dark');
+        alertBox.classList.remove('dark');
+        copyBtn.classList.remove('dark');
+        qrImg.classList.remove('dark');
+        qrContainer.classList.remove('dark');
+        emailBtn.classList.remove('dark');
+        emailContainerBtn.classList.remove('dark');
+        QRBtn.classList.remove('dark');
+        emailInputs[0].classList.remove('dark');
+        emailInputs[1].classList.remove('dark');
+        emailForm.classList.remove('dark');
+        fileURLInput.classList.remove('dark');
+        progressBar.classList.remove('dark');
+        progressContainerBar.classList.remove('dark');
+        progressContainer.classList.remove('dark');
+        browseBtn.classList.remove('dark');
+        dropzone.classList.remove('dark');
+        uploadContainer.classList.remove('dark');
     }
     else if(currentTheme === 'dark_mode'){
         themeIcon.innerText = 'light_mode';
-        themeSwitchCss.href = "css/styledark.css";
+        currentTheme = 'dark_mode';
+        storeLocalTheme('dark_mode');
+        themeIcon.innerText = 'light_mode';
+        //apply dark classes
+        bodyEl.classList.add('dark');
+        appTitle.classList.add('dark');
+        themebtn.classList.add('dark');
+        themeIcon.classList.add('dark');
+        alertBox.classList.add('dark');
+        copyBtn.classList.add('dark');
+        qrImg.classList.add('dark');
+        qrContainer.classList.add('dark');
+        emailBtn.classList.add('dark');
+        emailContainerBtn.classList.add('dark');
+        QRBtn.classList.add('dark');
+        emailInputs[0].classList.add('dark');
+        emailInputs[1].classList.add('dark');
+        emailForm.classList.add('dark');
+        fileURLInput.classList.add('dark');
+        progressBar.classList.add('dark');
+        progressContainerBar.classList.add('dark');
+        progressContainer.classList.add('dark');
+        browseBtn.classList.add('dark');
+        dropzone.classList.add('dark');
+        uploadContainer.classList.add('dark');
     }
 })
-
 
 const storeLocalTheme = (theme) => {
     localStorage.setItem("theme", theme);
@@ -46,17 +98,56 @@ const changeTheme = (theme) => {
         currentTheme = 'dark_mode';
         storeLocalTheme('dark_mode');
         themeIcon.innerText = 'light_mode';
-        themeSwitchCss.href = "css/styledark.css";
+        //apply dark classes
+        bodyEl.classList.add('dark');
+        appTitle.classList.add('dark');
+        themebtn.classList.add('dark');
+        themeIcon.classList.add('dark');
+        alertBox.classList.add('dark');
+        copyBtn.classList.add('dark');
+        qrImg.classList.add('dark');
+        qrContainer.classList.add('dark');
+        emailBtn.classList.add('dark');
+        emailContainerBtn.classList.add('dark');
+        QRBtn.classList.add('dark');
+        emailInputs[0].classList.add('dark');
+        emailInputs[1].classList.add('dark');
+        emailForm.classList.add('dark');
+        fileURLInput.classList.add('dark');
+        progressBar.classList.add('dark');
+        progressContainerBar.classList.add('dark');
+        progressContainer.classList.add('dark');
+        browseBtn.classList.add('dark');
+        dropzone.classList.add('dark');
+        uploadContainer.classList.add('dark');
     }
     else if(theme === "dark_mode"){
         currentTheme = 'light_mode';
         storeLocalTheme('light_mode');
         themeIcon.innerText = 'dark_mode';
-        themeSwitchCss.href = "#";
+        bodyEl.classList.remove('dark');
+        appTitle.classList.remove('dark');
+        themebtn.classList.remove('dark');
+        themeIcon.classList.remove('dark');
+        alertBox.classList.remove('dark');
+        copyBtn.classList.remove('dark');
+        qrImg.classList.remove('dark');
+        qrContainer.classList.remove('dark');
+        emailBtn.classList.remove('dark');
+        emailContainerBtn.classList.remove('dark');
+        QRBtn.classList.remove('dark');
+        emailInputs[0].classList.remove('dark');
+        emailInputs[1].classList.remove('dark');
+        emailForm.classList.remove('dark');
+        fileURLInput.classList.remove('dark');
+        progressBar.classList.remove('dark');
+        progressContainerBar.classList.remove('dark');
+        progressContainer.classList.remove('dark');
+        browseBtn.classList.remove('dark');
+        dropzone.classList.remove('dark');
+        uploadContainer.classList.remove('dark');
     }
 }
-
-// setTheme(currentTheme);
 
 themebtn.addEventListener('click', ()=>{
     changeTheme(currentTheme);

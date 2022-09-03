@@ -184,3 +184,23 @@ body{
         border-radius: 7px;
     }
 }
+
+/* dark css */
+body.dark{
+    background-color: #121212;
+    color: #d4eaf7;
+}
+.app-title.dark{
+    color:#d4eaf7;
+}
+.download-container.dark{
+    background-color: #0f0037;
+    box-shadow: 8px 20px 20px rgba(0, 0, 0, 0.096);
+}
+.download-btn.dark{
+    color: #d4eaf7;
+    background-color: #610094;
+}
+.download-btn:hover.dark{
+    background-color: #a73be1bc;
+}
